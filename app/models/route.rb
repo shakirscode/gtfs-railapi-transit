@@ -9,11 +9,11 @@ class Route < ApplicationRecord
   default_scope { order(route_sort_order: 'asc', route_short_name: 'asc') }
 
   scope :active, lambda { |date = nil|
-    if date.blank?
-      today = Time.zone.today.strftime('%Y-%m-%d')
-    else
-      today = Date.parse(date).strftime('%Y-%m-%d')
-    end
+    today = if date.blank?
+              Time.zone.today.strftime('%Y-%m-%d')
+            else
+              Date.parse(date).strftime('%Y-%m-%d')
+            end
     distinct
       .joins('LEFT JOIN trips t ON t.route_id = routes.id')
       .where("
