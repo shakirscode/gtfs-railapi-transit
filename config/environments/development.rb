@@ -68,8 +68,6 @@ Rails.application.configure do
      IPAddr.new('0.0.0.0/0'),              # All IPv4 addresses.
      IPAddr.new('::/0'),                   # All IPv6 addresses.
      'localhost',                          # The localhost reserved domain.
-    # ENV.fetch('RAILS_DEVELOPMENT_HOSTS')  # Additional comma-separated hosts for development.
-    additional_hosts = ENV.fetch('RAILS_DEVELOPMENT_HOSTS', '')
-    config.hosts += additional_hosts.split(',') unless additional_hosts.empty?
+    ENV.fetch('RAILS_DEVELOPMENT_HOSTS')  # Additional comma-separated hosts for development.
    ]
 end
