@@ -67,10 +67,10 @@ Rails.application.configure do
   # Add Railway Domain
   config.hosts << "gtfs-railapi-transit-production.up.railway.app"
 
-  config.hosts = [
-     IPAddr.new('0.0.0.0/0'),              # All IPv4 addresses.
-     IPAddr.new('::/0'),                   # All IPv6 addresses.
-     'localhost',                          # The localhost reserved domain.
-    ENV.fetch('RAILS_DEVELOPMENT_HOSTS')  # Additional comma-separated hosts for development.
-   ]
+  # config.hosts = [
+  #    IPAddr.new('0.0.0.0/0'),              # All IPv4 addresses.
+  #    IPAddr.new('::/0'),                   # All IPv6 addresses.
+  #    'localhost',                          # The localhost reserved domain.
+  #   ENV.fetch('RAILS_DEVELOPMENT_HOSTS')  # Additional comma-separated hosts for development.
+  #  ]
 end
